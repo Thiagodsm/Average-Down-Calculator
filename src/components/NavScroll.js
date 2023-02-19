@@ -1,6 +1,4 @@
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -19,7 +17,6 @@ function NavScroll({children}) {
                 >
                     <Nav.Link href="#home" style={{color: "#FFF"}}>Home</Nav.Link>
                     <Nav.Link href="#calculator" style={{color: "#FFF"}}>Calculadora</Nav.Link>
-                    <Nav.Link href="#contact" style={{color: "#FFF"}}>Contato</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -6,11 +6,12 @@ import NavScroll from './components/NavScroll';
 
 
 /*-- APIUtils --*/
-import api from './api/APIUtils';
+//import api from './api/APIUtils';
 import StockCard from './components/StockCard';
 import { Col, Container } from 'react-bootstrap';
 import StocksData from './components/StocksData';
 import SearchStock from './components/SearchStock';
+import StockCardResult from './components/StockCardResult';
 /*-- APIUtils --*/
 
 class App extends Component{
@@ -20,10 +21,10 @@ class App extends Component{
   }
 
   async componentDidMount(){
-    const response = await api.getQuote();
+    //const response = await api.getQuote();
 
     //console.log(response.data);
-    this.setState({data: response.data});
+    //this.setState({data: response.data});
   };
   
   render(){
@@ -36,18 +37,19 @@ class App extends Component{
           <Container id='calculator'>
             <h4>Calculadora</h4>
             <Row>
-              <Col xs={12} sm={12} md={6}>
+              <Col className='mb-3' xs={12} sm={12} md={6}>
+                <StocksData />
+              </Col>
+              <Col className='mb-3' xs={12} sm={12} md={6}>
                 <SearchStock />
                 <StockCard />
               </Col>
-              <Col xs={12} sm={12} md={6}>
-                <h6>Preencha 2 dos 3 campos abaixo</h6>
-                <StocksData />
+            </Row>
+            <Row className='mb-3'>
+              <Col xs={12} sm={12} md={12}>
+                <StockCardResult {...this.props}/>
               </Col>
             </Row>
-          </Container>
-          <Container id='contact'>
-            <h4>Contato</h4>
           </Container>
         </NavScroll>
       </div>
