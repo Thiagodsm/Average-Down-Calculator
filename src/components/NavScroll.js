@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 function NavScroll({children}) {
   return (
     <div className='NavScroll'>
-        <Navbar bg="dark" expand="lg">
+        <Navbar bg="dark" expand="lg" fixed='top'>
             <Container fluid>
                 <Navbar.Brand href="#" style={{color: "#FFF"}}>TSM</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -17,10 +17,10 @@ function NavScroll({children}) {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
-                    <Nav.Link href="#thiago"  style={{color: "#FFF"}}>Home</Nav.Link>
-                    <Nav.Link href="#action2" style={{color: "#FFF"}}>Calculadora</Nav.Link>
-                    <Nav.Link href="#action2" style={{color: "#FFF"}}>Sobre</Nav.Link>
-                    <Nav.Link href="#action2" style={{color: "#FFF"}}>Contato</Nav.Link>
+                    <Nav.Link href="#home"  style={{color: "#FFF"}}>Home</Nav.Link>
+                    <Nav.Link href="#calculator" style={{color: "#FFF"}}>Calculadora</Nav.Link>
+                    <Nav.Link href="#about" style={{color: "#FFF"}}>Sobre</Nav.Link>
+                    <Nav.Link href="#contact" style={{color: "#FFF"}}>Contato</Nav.Link>
                 </Nav>
                 <Form className="d-flex">
                     <Form.Control

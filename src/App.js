@@ -28,16 +28,19 @@ class App extends Component{
     return (
       <div className="App">
         <NavScroll>
-          <Container>
+          <Container id='home'>
           Home
           </Container>
-          <Container>
+          <Container id='calculator'>
             Calculadora
+            <Row>
+              <StockCard></StockCard>
+            </Row>
           </Container>
-          <Container>
+          <Container id='about'>
             Sobre
           </Container>
-          <Container>
+          <Container id='contact'>
             Contato
           </Container>
           <Container>

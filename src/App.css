@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+#home,
+#about {
+  color: #3b3b3c;
+  background: #eaf;
+}
+
+#home,
+#calculator,
+#about,
+#contact {
+  height: 100vh;
+}
+
+.Nav.Link{
+  color: #FFF;
+}
