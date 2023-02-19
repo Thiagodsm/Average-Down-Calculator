@@ -12,12 +12,17 @@ import StockCardResult from './components/StockCardResult';
 
 class App extends Component{
   state = {
+    paa:0,
+    pmd:0,
+    qtd:0,
+    pma:0,
     price: 0,
     quantity: 0,
    }
 
-handleCallback = (priceChild, quantityChild) =>{
-    this.setState({price: priceChild, quantity: quantityChild});
+handleCallback = (qtdChild, paaChild, pmdChild, pmaChild, priceChild, quantityChild) =>{
+    this.setState({paa: paaChild, pmd: pmdChild, qtd: qtdChild, pma: pmaChild, price: priceChild, quantity: quantityChild});
+    console.log({paaChild, pmdChild, qtdChild, pmaChild, priceChild, quantityChild})
 }
 
   render(){
@@ -26,7 +31,7 @@ handleCallback = (priceChild, quantityChild) =>{
       <div className="App">
         <NavScroll>
           <Container id='home'>
-          Home
+          <h4>Home</h4>
           </Container>
           <Container id='calculator'>
             <h4>Calculadora</h4>

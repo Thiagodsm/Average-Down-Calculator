@@ -10,8 +10,9 @@ export default function SearchStock() {
             placeholder="Pesquisar"
             className="me-2"
             aria-label="Search"
+            disabled 
             />
-            <Button variant="outline-success">Pesquisar</Button>
+            <Button variant="outline-success" disabled >Pesquisar</Button>
         </Form>
       );
 }

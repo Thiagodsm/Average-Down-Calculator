@@ -6,9 +6,10 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 function StocksData(props) {
 
-    const onTrigger = (price, quantity) => {
+    const onTrigger = (event, paa, pmd, qtd, pma, price, quantity) => {
         //console.log({price, quantity});
-        props.parentCallback(price, quantity);
+        props.parentCallback(qtd, paa, pmd, pma, price, quantity);
+        event.preventDefault();
     }
 
     const[paa, setPaa] = useState('');
@@ -18,7 +19,7 @@ function StocksData(props) {
     const[qtd, setQtd] = useState('');
 
 
-    function handleSaveStockData() {
+    function handleSaveStockData(event) {
         let price = 0, quantity = 0;
         if (paa && ((pma && vti) || (pma && qtd) || (vti && qtd))) 
         {
@@ -46,7 +47,7 @@ function StocksData(props) {
             paa, pmd, pma, vti, qtd, price, quantity
         }
         console.log(data);
-        onTrigger(price, quantity);
+        onTrigger(event, data.paa, data.pmd, data.qtd, data.pma, price, quantity);
     }
 
     return (

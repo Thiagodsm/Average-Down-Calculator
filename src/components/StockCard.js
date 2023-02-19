@@ -4,14 +4,11 @@ function StockCard() {
   return (
     <Card className='mb-3 me-3' style={{ width: '100%'}}>
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+        <Card.Title>BBDC3 - BRADESCO ON</Card.Title>
+        <Card.Subtitle className="mb-2 text-muted">12,21 BRL</Card.Subtitle>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          Máxima e minima do dia R$ 12.26 - R$ 12.07
         </Card.Text>
-        <Card.Link href="#">Card Link</Card.Link>
-        <Card.Link href="#">Another Link</Card.Link>
       </Card.Body>
     </Card>
   );
