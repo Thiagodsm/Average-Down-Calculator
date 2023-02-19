@@ -11,22 +11,17 @@ import StockCardResult from './components/StockCardResult';
 //import api from './api/APIUtils';
 
 class App extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {
-      price:0,
-      quantity:0
-    };
-  }
+  state = {
+    price: 0,
+    quantity: 0,
+   }
 
-  async componentDidMount(){
-    //const response = await api.getQuote()
-
-    //console.log(response.data);
-    //this.setState({data: response.data});
-  }
+handleCallback = (priceChild, quantityChild) =>{
+    this.setState({price: priceChild, quantity: quantityChild});
+}
 
   render(){
+    //const{price, quantity} = this.state;
     return (
       <div className="App">
         <NavScroll>
@@ -37,7 +32,7 @@ class App extends Component{
             <h4>Calculadora</h4>
             <Row>
               <Col className='mb-3' xs={12} sm={12} md={6}>
-                <StocksData {...this.props}/>
+                <StocksData parentCallback={this.handleCallback}/>
               </Col>
               <Col className='mb-3' xs={12} sm={12} md={6}>
                 <SearchStock />
@@ -46,7 +41,7 @@ class App extends Component{
             </Row>
             <Row className='mb-3'>
               <Col xs={12} sm={12} md={12}>
-                <StockCardResult/>
+                <StockCardResult {...this.state}/>
               </Col>
             </Row>
           </Container>

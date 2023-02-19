@@ -4,7 +4,12 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 
-function StocksData({props}) {
+function StocksData(props) {
+
+    const onTrigger = (price, quantity) => {
+        //console.log({price, quantity});
+        props.parentCallback(price, quantity);
+    }
 
     const[paa, setPaa] = useState('');
     const[pmd, setPmd] = useState('');
@@ -13,37 +18,35 @@ function StocksData({props}) {
     const[qtd, setQtd] = useState('');
 
 
-    function handleSaveStockData(){
-        //let price = 0, quantity = 0;
+    function handleSaveStockData() {
+        let price = 0, quantity = 0;
         if (paa && ((pma && vti) || (pma && qtd) || (vti && qtd))) 
         {
             if (pma && vti) {
                 setQtd(vti/pma);
-                props.quantity = qtd*((pma-pmd)/(pma-paa));
-                props.price = props.quantity*paa;
+                quantity = qtd*((pma-pmd)/(pma-paa));
+                price = quantity*paa;
             } else if (pma && qtd) {
                 setVti(pma*qtd);
-                props.quantity = qtd*((pma-pmd)/(pma-paa));
-                props.price = props.quantity*paa;
+                quantity = qtd*((pma-pmd)/(pma-paa));
+                price = quantity*paa;
             } else if (vti && qtd) {
                 setPma(vti/qtd);
-                props.quantity = qtd*((pma-pmd)/(pma-paa));
-                props.price = props.quantity*paa;
+                quantity = qtd*((pma-pmd)/(pma-paa));
+                price = quantity*paa;
             } else{
-                props.price = 0;
-                props.quantity = 0;
+                price = 0;
+                quantity = 0;
             }
         } else {
             console.log("Erro");
         }
 
         const data = {
-            paa, pmd, pma, vti, qtd//, props.price, props.quantity
+            paa, pmd, pma, vti, qtd, price, quantity
         }
         console.log(data);
-        console.log(props.price);
-        console.log(props.quantity);
-        //setResults();
+        onTrigger(price, quantity);
     }
 
     return (
