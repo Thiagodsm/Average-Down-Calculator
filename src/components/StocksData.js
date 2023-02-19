@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 
-function StocksData() {
+function StocksData({props}) {
 
     const[paa, setPaa] = useState('');
     const[pmd, setPmd] = useState('');
@@ -14,37 +14,36 @@ function StocksData() {
 
 
     function handleSaveStockData(){
-        let price = 70, quantity = 99;
-        console.log("aqui");
+        //let price = 0, quantity = 0;
         if (paa && ((pma && vti) || (pma && qtd) || (vti && qtd))) 
         {
             if (pma && vti) {
-                console.log("1");
                 setQtd(vti/pma);
-                quantity = qtd*((pma-pmd)/(pma-paa));
-                price = quantity*paa;
+                props.quantity = qtd*((pma-pmd)/(pma-paa));
+                props.price = props.quantity*paa;
             } else if (pma && qtd) {
-                console.log("2");
                 setVti(pma*qtd);
-                quantity = qtd*((pma-pmd)/(pma-paa));
-                price = quantity*paa;
+                props.quantity = qtd*((pma-pmd)/(pma-paa));
+                props.price = props.quantity*paa;
             } else if (vti && qtd) {
-                console.log("3");
                 setPma(vti/qtd);
-                quantity = qtd*((pma-pmd)/(pma-paa));
-                price = quantity*paa;
+                props.quantity = qtd*((pma-pmd)/(pma-paa));
+                props.price = props.quantity*paa;
             } else{
-                price = 0;
-                quantity = 0;
+                props.price = 0;
+                props.quantity = 0;
             }
         } else {
             console.log("Erro");
         }
 
         const data = {
-            paa, pmd, pma, vti, qtd, price, quantity
+            paa, pmd, pma, vti, qtd//, props.price, props.quantity
         }
         console.log(data);
+        console.log(props.price);
+        console.log(props.quantity);
+        //setResults();
     }
 
     return (
@@ -82,10 +81,7 @@ function StocksData() {
                 <InputGroup.Text>R$</InputGroup.Text>
                 <Form.Control type='number' placeholder="Insira a quantiadade (Qtd)" value={qtd} onChange={e => setQtd(e.target.value)} />
             </InputGroup>
-
-
             <Form.Text className="text-muted">Dados necessários para realizar os calculos.</Form.Text>
-
         </Form.Group>
         <Button variant="primary" type="submit" onClick={handleSaveStockData}>
             Calcular

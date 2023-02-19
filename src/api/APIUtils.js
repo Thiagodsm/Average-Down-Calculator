@@ -3,12 +3,11 @@ import axios from 'axios'
 
 const apiYahooFinance = axios.create({
     baseURL: 'https://query1.finance.yahoo.com/v7/',
-    withCredentials:false,
-    headers:{
+    /*headers:{
         "Content-type": "application/json", 
         "Access-Control-Allow-Origin":"*",
         "Access-Control-Allow-Methods":"GET,PUT,POST,DELETE,PATCH,OPTIONS", 
-    }
+    }*/
 });
 
 class APIUtils extends Component{
