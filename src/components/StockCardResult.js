@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card';
 
 function StockCardResult({stockData}) {
+  console.log('result: ' + stockData);
   return (
     <Card className='mb-3 me-3' style={{ width: '100%', height:'100%'}}>
       <Card.Body>

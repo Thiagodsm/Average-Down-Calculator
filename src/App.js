@@ -3,15 +3,15 @@ import './App.css';
 import Row  from 'react-bootstrap/Row';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavScroll from './components/NavScroll';
-
-
-/*-- APIUtils --*/
-//import api from './api/APIUtils';
 import StockCard from './components/StockCard';
 import { Col, Container } from 'react-bootstrap';
 import StocksData from './components/StocksData';
 import SearchStock from './components/SearchStock';
 import StockCardResult from './components/StockCardResult';
+
+
+/*-- APIUtils --*/
+//import api from './api/APIUtils';
 /*-- APIUtils --*/
 
 class App extends Component{
