@@ -38,14 +38,13 @@
 }
 
 #home,
-#about {
+#contact {
   color: #3b3b3c;
   background: #eaf;
 }
 
 #home,
 #calculator,
-#about,
 #contact {
   height: 100vh;
 }
